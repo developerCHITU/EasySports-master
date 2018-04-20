@@ -1,0 +1,170 @@
+<?xml version="1.0" encoding="utf-8"?>
+<manifest xmlns:android="http://schemas.android.com/apk/res/android"
+          xmlns:tools="http://schemas.android.com/tools"
+          package="com.rayhahah.easysports">
+
+    <!-- 允许联网 -->
+    <uses-permission android:name="android.permission.INTERNET"/>
+    <!-- 获取GSM（2g）、WCDMA（联通3g）等网络状态的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_NETWORK_STATE"/>
+    <!-- 获取wifi网络状态的信息 -->
+    <uses-permission android:name="android.permission.ACCESS_WIFI_STATE"/>
+    <!-- 保持CPU 运转，屏幕和键盘灯有可能是关闭的,用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.WAKE_LOCK"/>
+    <!-- 获取sd卡写的权限，用于文件上传和下载 -->
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE"/>
+    <!-- 允许读取手机状态 用于创建BmobInstallation -->
+    <uses-permission android:name="android.permission.READ_PHONE_STATE"/>
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE"/>
+    <uses-permission android:name="android.permission.MOUNT_UNMOUNT_FILESYSTEMS"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_MULTICAST_STATE"/>
+    <uses-permission android:name="android.permission.CHANGE_WIFI_STATE"/>
+    <uses-permission android:name="android.permission.WRITE_SETTINGS"/>
+
+    <!-- ShareSDK添加必要的权限 -->
+    <uses-permission android:name="android.permission.ACCESS_FINE_LOCATION"/>
+    <uses-permission android:name="android.permission.ACCESS_COARSE_LOCATION"/>
+    <uses-permission android:name="android.permission.GET_TASKS"/>
+    <uses-permission android:name="android.permission.SYSTEM_ALERT_WINDOW"/>
+    <uses-permission android:name="android.permission.CAMERA"/>
+    <uses-permission android:name="android.permission.FLASHLIGHT"/>
+    <!-- 调用硬件相机权限 -->
+    <uses-feature android:name="android.hardware.camera"/>
+    <uses-feature android:name="android.hardware.camera.autofocus"/>
+
+    <uses-permission android:name="android.permission.RECORD_AUDIO"/>
+
+    <application
+        android:name=".app.MyApp"
+        android:allowBackup="true"
+        android:icon="@mipmap/ic_logo"
+        android:label="@string/app_name"
+        android:roundIcon="@mipmap/ic_logo"
+        android:supportsRtl="true"
+        android:theme="@style/AppDayTheme">
+
+        <!--Glide自定义模块-->
+        <meta-data
+            android:name="com.rayhahah.easysports.utils.glide.MyGlideModule"
+            android:value="GlideModule"/>
+
+        <!-- 阿里云移动热修复 -->
+        <meta-data
+            android:name="com.taobao.android.hotfix.IDSECRET"
+            android:value="24594916-1"/>
+        <meta-data
+            android:name="com.taobao.android.hotfix.APPSECRET"
+            android:value="7452a4dc80e687201f2a41ecc61a3c24"/>
+        <meta-data
+            android:name="com.taobao.android.hotfix.RSASECRET"
+            android:value="MIIEvAIBADANBgkqhkiG9w0BAQEFAASCBKYwggSiAgEAAoIBAQCCAwMsYacsak/49+H7GK6nXEQS2U4qN0JOr2C7rgZLdck49UEcrepZBDpynrTxoEQdteJJkNv5sVGXhBlrgSFUesDs0wkXv3+JVjXxUZrSnVQWkeqTFDzI5EbV4WZm+to2zmg00G+6+ogiu1wyc7lirDuSsnzNest4DwWTmptJH+vWVbT6rmCXab/YZJe8nAgGrhK29NlH2UvRXi1TpkA4l4BpIwtEM/869zf1f8qz8XYGN+Pw17CKEtmwq1DNrl/emgUvNhvD/hTMRS4qNAUiCksl6+4YXVk4jTl6lIzYQgR6+AasUPMAN+eWnUNuzZMR7f/7vagDheGptBhEj5JbAgMBAAECggEAGxm/ppewfjym8PHS5EFv3qkH85nihkBAjSBXnKeY3k/uIvZUnULPb8DG4i+c7iUHLd5FDiqo//JrXJcHqXYgWXjBEFypL48Waa1TzzrAeBidd5rw97mnNgUHkvvKGbs+k2ARLrkoISSqDftaK5Yd1airPlgAVeC72wnekrcOmX5FtZWYuPp0VoJUySBkc9TFBycfePJSGEdnrtP2UwSmL2mvaFsyqNDpoAiJOKJaE0lDIPfRenLZE4jOKJYJ7ypFWnINIEHqqv39jIXMs3w62XlJyb+wxk4gitrfGPKFjMqP99WTljX07oa8xazvDj5hlmMB751GoEMrG2t/MohvuQKBgQDZOu1SKeXCqGbzkA0gs/rklkybud59uF5VosAgYobrzPKbIqOzifwwzf/gcTNk00r6cu9oGyuwbDoYprhjmbZhBrW4DFfUTDuK8aeLtieCwjSm0xuf/ZrkORl+lX0VUvMk7u9agOpJftZOk514nYiV/IQU8uRfZZo28AHxF/eybwKBgQCZNyVUlN7HoTEsM45l9TYQTrP7U1SNnwGH0inYHZxDFdam/A2JnJSFYVNxDjXShF7teDShWJk2spC+dtcgTT6TzwoIK0zcur2/8fo0Eox0xmlva9c1zKyNrZccb/CJIUZQVR3z47Zbw9ZuyK/8YUr9CCKSJD3ty5ewOUgdDeek1QKBgA4PhGD3GUoaQF+viUn+nFTDbb3+r+oPTvvYBvuRpQ4KPAHSoiny2oIGM3PBoAP8sTO40Mo6R/+pYbFKyVCZGHb7SjPZiK3TKV96+M9QQQpzq5jIvVcDwUzYbVAGOQxyTA6t8Iw5H/EV5qU7ZMvz1m1u5NW+Sw3ps6uuqVGDraK9AoGAe1Z2OamB0WhEYlW6ev8zn1sL7fS96yemHsUjJDNp+GMbId9jsnSW5uxbNHaBA0/F7xpGG+Brril+9aRLN1iXWHthkwPwYvv9BghwJv0LjnGurKA+ZbO28HJeY+kE1A8yQDbU3uFfim2TMClj6iIUMK8czVJZfBTZrmXeVG0+HWUCgYACCakakZ1R6Jom7/Gh5zqwckpYbdVyF1979RpQh9zlbaj/yz000s5QCfrpmb9z5V5laXsBcQ9doGs6enh4ywuF0FK8KJ45jux6yM4tyqAs5B7WmGNvSzYHTiux52qhiJlgC1D7i9bVUW3XQjdzunXM/5j2RUnClA7PL1SZEs/+ww=="/>
+
+        <!-- 填写您从Mob开发者后台中得到的Appkey和AppSecret -->
+        <meta-data
+            android:name="Mob-AppKey"
+            android:value="1f9794709477b"/>
+        <meta-data
+            android:name="Mob-AppSecret"
+            android:value="9bfa1e4458daf2c82e4bd67e0dd0869a"/>
+        <!--腾讯加固需要的渠道标识-->
+        <!--<meta-data-->
+            <!--android:name="CHANNEL"-->
+            <!--android:value="channel"-->
+            <!--tools:replace="android:value"/>-->
+
+        <activity
+            android:name=".module.SplashActivity"
+            android:theme="@style/AppWelcome"
+            >
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN"/>
+
+                <category android:name="android.intent.category.LAUNCHER"/>
+            </intent-filter>
+        </activity>
+        <!-- JieCaoPlayer对屏幕的设定 orientation|keyboardHidden|screenSize -->
+        <activity
+            android:name=".module.home.HomeActivity"
+            android:configChanges="orientation|keyboardHidden|screenSize"
+            android:launchMode="singleTask"
+            android:screenOrientation="portrait">
+        </activity>
+        <activity
+            android:name=".common.RWebActivity"
+            android:process=":remoteweb"
+            >
+        </activity>
+        <activity android:name=".module.news.business.newsdetail.NewsDetailActivity">
+        </activity>
+        <activity android:name=".module.mine.business.teamplayer.SingleListActivity">
+        </activity>
+        <activity android:name=".module.mine.business.login.LoginActivity">
+        </activity>
+        <activity android:name=".module.mine.business.account.AccountActivity">
+        </activity>
+        <activity
+            android:name=".zxing.app.CaptureActivity"
+            android:screenOrientation="portrait"/>
+
+
+        <!-- ShareSDK的activity -->
+        <activity
+            android:name="com.mob.tools.MobUIShell"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"
+            android:windowSoftInputMode="stateHidden|adjustResize">
+            <intent-filter>
+                <data android:scheme="tencent100371282"/>
+
+                <action android:name="android.intent.action.VIEW"/>
+
+                <category android:name="android.intent.category.BROWSABLE"/>
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+
+            <!-- 调用新浪原生SDK，需要注册的回调activity -->
+            <intent-filter>
+                <action android:name="com.sina.weibo.sdk.action.ACTION_SDK_REQ_ACTIVITY"/>
+
+                <category android:name="android.intent.category.DEFAULT"/>
+            </intent-filter>
+        </activity>
+
+        <!-- 微信分享 -->
+        <!-- 没有此activity在微信分享后回调会检查是否有此activity,没有将会报错。 -->
+        <activity
+            android:name=".wxapi.WXEntryActivity"
+            android:configChanges="keyboardHidden|orientation|screenSize"
+            android:exported="true"
+            android:screenOrientation="portrait"
+            android:theme="@android:style/Theme.Translucent.NoTitleBar"/>
+        <activity android:name=".module.mine.business.register.RegisterActivity">
+        </activity>
+        <activity android:name=".module.mine.business.forget.ForgetActivity">
+        </activity>
+        <activity
+            android:name=".module.mine.business.record.RecordActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@style/NoTitleFullscreen">
+        </activity>
+        <activity android:name=".module.mine.business.livelist.LiveListActivity">
+        </activity>
+        <activity
+            android:name=".module.mine.business.livelist.LivePlayActivity"
+            android:configChanges="orientation|screenSize|keyboardHidden"
+            android:theme="@style/NoTitleFullscreen">
+        </activity>
+
+        <service android:name=".net.version.UpdateAppService"/>
+
+        <activity
+            android:name=".module.forum.business.forumdetaillist.ForumDetailListActivity"
+            android:theme="@style/NoTitleFullscreen">
+        </activity>
+        <activity android:name=".module.forum.business.forumdetail.ForumDetailActivity">
+        </activity>
+        <activity android:name=".module.match.busniess.matchdetail.MatchDetailActivity">
+        </activity>
+    </application>
+
+</manifest>

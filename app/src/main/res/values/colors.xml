@@ -1,0 +1,43 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <color name="colorPrimary">#3F51B5</color>
+    <color name="colorPrimaryDark">#303F9F</color>
+    <color name="colorAccent">#FF4081</color>
+
+
+    <color name="colorPrimaryDay">#C01E2F</color>
+    <color name="colorPrimaryDayDark">#A82828</color>
+    <color name="colorPrimaryDayAccent">#F65663</color>
+    <color name="colorDayTextLight">#B6B6BE</color>
+    <color name="colorDayTextDark">#444242</color>
+    <color name="colorDayBg">#FFFFFF</color>
+    <color name="colorDayBgDark">#ECECEC</color>
+
+    <color name="colorPrimaryNight">#600F17</color>
+    <color name="colorPrimaryNightDark">#600F17</color>
+    <color name="colorPrimaryNightAccent">#C01E2F</color>
+    <color name="colorNightTextLight">#8A8A8A</color>
+    <color name="colorNightTextDark">#545459</color>
+    <color name="colorNightBg">#2C2C2C</color>
+    <color name="colorNightBgDark">#1F1F1F</color>
+
+    <color name="transparent">#00ffffff</color>
+    <color name="transparentI">#55ffffff</color>
+    <color name="transparentIi">#aaffffff</color>
+    <color name="transparentIiBlack">#aa000000</color>
+    <color name="transparentIBlack">#55000000</color>
+
+    <!-- QR_Code -->
+    <color name="viewfinder_mask">#60000000</color>
+    <color name="result_view">#b0000000</color>
+    <color name="possible_result_points">#c0ffff00</color>
+    <color name="result_image_border">#ffffffff</color>
+    <color name="result_minor_text">#ffc0c0c0</color>
+    <color name="result_points">#c000ff00</color>
+    <color name="system_bar_color">#fed952</color>
+
+    <color name="black">#000000</color>
+    <color name="white">#FFFFFF</color>
+    <color name="blue">#0000FF</color>
+    <color name="blueLight">#4974FF</color>
+</resources>

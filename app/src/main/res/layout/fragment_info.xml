@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:id="@+id/fbl_info"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorBg"
+        app:flexDirection="row"
+        app:flexWrap="wrap">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"/>
+
+        <android.support.design.widget.TabLayout
+            android:id="@+id/tl_info_selection"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:visibility="visible"
+            app:tabBackground="?attr/colorBg"
+            app:tabGravity="fill"
+            app:tabIndicatorColor="?attr/colorPrimary"
+            app:tabIndicatorHeight="@dimen/dp_3"
+            app:tabMode="fixed"
+            app:tabSelectedTextColor="?attr/colorPrimary"
+            app:tabTextColor="?attr/colorTextLight"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_info_index"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            app:layout_flexGrow="2"/>
+
+        <FrameLayout
+            android:id="@+id/fl_info"
+            android:layout_width="1dp"
+            android:layout_height="match_parent"
+            app:layout_flexGrow="8">
+
+            <android.support.v7.widget.RecyclerView
+                android:id="@+id/rv_info_list"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                />
+
+            <com.rayhahah.easysports.view.ProgressLayout
+                android:id="@+id/pl"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                android:visibility="gone"/>
+
+        </FrameLayout>
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+</layout>

@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    >
+
+    <com.google.android.flexbox.FlexboxLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="?attr/colorBg"
+        app:flexDirection="column">
+
+        <include
+            android:id="@+id/toolbar"
+            layout="@layout/toolbar"/>
+
+        <Button
+            android:id="@+id/btn_forum_bind_hupu"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_margin="@dimen/dp_10"
+            android:background="@drawable/selector_color_click_corner"
+            android:text="@string/login_first"
+            android:textColor="?attr/colorTextLight"
+            android:textSize="@dimen/sp_20"/>
+
+
+        <com.rayhahah.easysports.view.ProgressLayout
+            android:id="@+id/pl"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_flexGrow="1"
+            />
+
+        <android.support.v7.widget.RecyclerView
+            android:id="@+id/rv_forum_list"
+            android:layout_width="match_parent"
+            android:layout_height="0dp"
+            android:visibility="gone"
+            app:layout_flexGrow="1"
+            />
+
+    </com.google.android.flexbox.FlexboxLayout>
+
+</layout>

@@ -1,0 +1,172 @@
+apply plugin: 'com.android.application'
+apply plugin: 'org.greenrobot.greendao' // apply plugin
+
+def releaseTime() {
+//    return new Date().format("yyyy-MM-dd", TimeZone.getTimeZone("UTC"))
+}
+
+android {
+    useLibrary 'org.apache.http.legacy'
+    compileSdkVersion 25
+    buildToolsVersion "25.0.2"
+    defaultConfig {
+        applicationId "com.rayhahah.easysports"
+        minSdkVersion 19
+        targetSdkVersion 22
+        versionCode 1
+        versionName "1.0"
+//        testInstrumentationRunner "android.support.test.runner.AndroidJUnitRunner"
+//        vectorDrawables.useSupportLibrary = true
+//        multiDexEnabled true
+
+        ndk {
+            abiFilters "armeabi", "armeabi-v7a","x86"
+        }
+
+    }
+    signingConfigs {
+        config {
+            storeFile file("rayhahah.keystore")
+            storePassword '19940531coding'
+            keyAlias "rayhahah"
+            keyPassword '19940531coding'
+        }
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+            signingConfig signingConfigs.config
+        }
+        debug {
+//            useProguard false
+//            minifyEnabled false
+//            signingConfig signingConfigs.config
+        }
+
+
+//        applicationVariants.all { variant ->
+//            if (variant.buildType.name.equals('release')) {
+//                variant.outputs.all { output ->
+//                    def outputFile = output.outputFile
+//                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                        //如果不是jenkins就不用修改路径
+//                        if ("false".equals(IS_JENKINS)) {
+//                            def fileName = "EasySport_${defaultConfig.versionName}_${releaseTime()}_${variant.flavorName}.apk"
+////                            outputFileName = new File("/local", fileName)
+////                            output.outputFile = new File(outputFile.parent, fileName)
+//                        } else {
+//                            def fileName = "EasySport_${RELEASE_TIME}_${defaultConfig.versionName}_${PRODUCT_FLAVOR}_.apk"
+//                            //服务器上的路径
+//                            //适配AS3.0
+////                            outputFileName = new File("/upload", fileName)
+////                            output.outputFile = new File("E:/android/apk/easysports/upload", fileName)
+//                        }
+//                    }
+//                }
+//            } else {
+//                variant.outputs.all { output ->
+//                    def outputFile = output.outputFile
+//                    if (outputFile != null && outputFile.name.endsWith('.apk')) {
+//                        //如果是jenkins就修改路径
+//                        if ("true".equals(IS_JENKINS)) {
+//                            def fileName = "EasySport_${RELEASE_TIME}_${defaultConfig.versionName}_${PRODUCT_FLAVOR}_debug.apk"
+//                            //服务器上的路径
+//                            //适配AS3.0
+////                            outputFileName = new File("/upload", fileName)
+////                            output.outputFile = new File("E:/android/apk/easysports/upload", fileName)
+//                        }
+//                    }
+//                }
+//            }
+//        }
+    }
+
+//    dataBinding {
+//        enabled = true
+//    }
+
+    //使AS知道.资源文件目录的位置
+//    sourceSets {
+//        main {
+//            res.srcDirs = [
+//                    'src/main/res'
+//            ]
+//        }
+//    }
+
+    greendao {
+        schemaVersion 5
+        daoPackage 'com.rayhahah.greendao.gen'
+        targetGenDir 'src/main/java'
+    }
+
+//    lintOptions {
+//        checkReleaseBuilds false
+//        abortOnError false
+//    }
+//
+//    aaptOptions {
+//        cruncherEnabled = false
+//        useNewCruncher = false
+//    }
+
+    //增加编译内存到4g
+    dexOptions{
+//        incremental true
+//        javaMaxHeapSize "4g"
+    }
+
+    packagingOptions {
+        exclude 'META-INF/rxjava.properties'
+    }
+
+//    flavorDimensions "default"
+//    productFlavors {
+//        official {
+//            dimension "default"
+//            manifestPlaceholders = [CHANNEL: "OFFICIAL"]
+//        }
+//        xiaomi {
+//            dimension "default"
+//            manifestPlaceholders = [CHANNEL: "XIAOMI"]
+//        }
+//        yingyongbao {
+//            dimension "default"
+//            manifestPlaceholders = [CHANNEL: "YINGYONGBAO"]
+//        }
+//    }
+}
+
+dependencies {
+    compile fileTree(include: ['*.jar'], dir: 'libs')
+    androidTestCompile('com.android.support.test.espresso:espresso-core:2.2.2', {
+        exclude group: 'com.android.support', module: 'support-annotations'
+    })
+    //    compile(name: 'hotfix_core-release-3.1.0', ext: 'aar')
+    //    compile(name: 'LiteAVSDK_Smart_3.3.1655', ext: 'aar')
+    compile project(path: ':rbase')
+    compile project(path: ':rvideoplayer')
+    compile project(path: ':dialoglib')
+    //如果你想应用能够兼容Android6.0，请添加此依赖(org.apache.http.legacy.jar)
+    compile files('libs/MobCommons-2017.0608.1618.jar')
+    compile files('libs/MobTools-2017.0608.1618.jar')
+    compile files('libs/ShareSDK-Core-3.0.0.jar')
+    compile files('libs/ShareSDK-QQ-3.0.0.jar')
+    compile files('libs/ShareSDK-QZone-3.0.0.jar')
+    compile files('libs/ShareSDK-SinaWeibo-3.0.0.jar')
+    compile files('libs/ShareSDK-Wechat-3.0.0.jar')
+    compile files('libs/ShareSDK-Wechat-Core-3.0.0.jar')
+    compile files('libs/ShareSDK-Wechat-Moments-3.0.0.jar')
+    compile files('libs/zxing.jar')
+    compile files('libs/alicloud-android-utils-1.0.3.jar')
+    compile files('libs/utdid4all-1.1.5.3_proguard.jar')
+    //    阿里云热修复远程依赖失败
+    //    compile 'com.aliyun.ams:alicloud-android-hotfix:3.1.0'
+    compile 'com.tencent.sonic:sdk:2.0.0'
+    //    compile 'com.android.support.constraint:constraint-layout:1.0.2'
+    //    compile 'com.android.support:multidex:1.0.2'
+    compile 'org.greenrobot:greendao:3.2.2'
+    // add library
+    testCompile 'junit:junit:4.12'
+}
